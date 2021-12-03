@@ -25,6 +25,8 @@
     <title>Accident</title>
 </head>
 <body>
+<%
+%>
 Hello : ${user}
 <div class="container pt-3">
     <div class="row">
@@ -36,17 +38,19 @@ Hello : ${user}
                 <table class="table">
                     <thead>
                     <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Client</th>
+                        <th scope="col">#</th>
+                        <th scope="col">Client Name</th>
+                        <th scope="col">Client Accident</th>
+                        <th scope="col">Client Address</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${clients}" var="client">
+                    <c:forEach var="client" items="${clients}">
                         <tr>
-                            <td></td>
-                            <td>
-                                <c:out value="${client}"/>
-                            </td>
+                            <td><c:out value="${client.key}"/></td>
+                            <td><c:out value="${client.value.name}"/></td>
+                            <td><c:out value="${client.value.text}"/></td>
+                            <td> <c:out value="${client.value.address}"/></td>
                         </tr>
                     </c:forEach>
                     </tbody>
