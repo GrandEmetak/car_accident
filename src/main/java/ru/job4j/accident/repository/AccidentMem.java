@@ -18,15 +18,15 @@ public class AccidentMem {
     private Map<Integer, Accident> accidents = new HashMap<>();
 
     public AccidentMem() {
-        this.accidents.put(1, Accident.of("Pet Arsentev",
+        this.accidents.put(1, Accident.of(1, "Pet Arsentev",
                 "Превышение скорость на  60 км/ч ",
                 "ул. Большая Сухаревская 11")
         );
-        this.accidents.put(2, Accident.of("Ivan Sobolev",
+        this.accidents.put(2, Accident.of(2, "Ivan Sobolev",
                 "Проезд на красный свет",
                 "ул. Охотный ряд 115")
         );
-        this.accidents.put(3, Accident.of("Fedor Semenov",
+        this.accidents.put(3, Accident.of(3, "Fedor Semenov",
                 "Превышение скорость на  35 км/ч ",
                 "ул. Обводной Вал 17")
         );
