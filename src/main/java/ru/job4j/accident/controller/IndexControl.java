@@ -15,13 +15,12 @@ import java.util.List;
  */
 @Controller
 public class IndexControl {
+
+    private AccidentService accidentService = new AccidentService();
+
     @GetMapping("/")
     public String index(Model model) {
-        AccidentMem accidentMem = new AccidentMem();
-        AccidentService accidentService = new AccidentService(accidentMem);
-
-        model.addAttribute("user", "Petr Arsentev");
-        model.addAttribute("client",  accidentService.getAccidentMem());
+        model.addAttribute("accidents",  accidentService.getAll());
         return "index";
     }
 }

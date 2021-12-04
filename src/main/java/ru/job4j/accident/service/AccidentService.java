@@ -1,8 +1,10 @@
 package ru.job4j.accident.service;
 
 import org.springframework.stereotype.Service;
+import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.repository.AccidentMem;
 
+import java.util.Collection;
 import java.util.Objects;
 
 /**
@@ -14,40 +16,15 @@ public class AccidentService {
 
     private AccidentMem accidentMem;
 
-    public AccidentService(AccidentMem accidentMem) {
+    public AccidentService() {
+        AccidentMem accidentMem = new AccidentMem();
         this.accidentMem = accidentMem;
     }
 
-    public AccidentMem getAccidentMem() {
-        return accidentMem;
-    }
-
-    public void setAccidentMem(AccidentMem accidentMem) {
-        this.accidentMem = accidentMem;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        AccidentService that = (AccidentService) o;
-        return Objects.equals(accidentMem, that.accidentMem);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(accidentMem);
-    }
-
-    @Override
-    public String toString() {
-        return "AccidentService{"
-                + "accidentMem="
-                + accidentMem
-                + '}';
+    /**
+     * @return возвращает коллекцию значнией
+     */
+    public Collection<Accident> getAll() {
+        return accidentMem.getAll();
     }
 }
