@@ -16,6 +16,10 @@ public class AccidentService {
 
     private AccidentMem accidentMem;
 
+    public AccidentService(AccidentMem accidentMem) {
+        this.accidentMem = accidentMem;
+    }
+
     public AccidentService() {
         AccidentMem accidentMem = new AccidentMem();
         this.accidentMem = accidentMem;

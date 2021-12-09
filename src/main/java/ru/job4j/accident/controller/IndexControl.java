@@ -16,11 +16,21 @@ import java.util.List;
 @Controller
 public class IndexControl {
 
-    private AccidentService accidentService = new AccidentService();
+    private AccidentService accidentService;
+
+    public IndexControl(AccidentMem accidentMem) {
+
+        this.accidentService = new AccidentService(accidentMem);
+    }
+
+    public AccidentService getAccidentService() {
+        return accidentService;
+    }
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("accidents",  accidentService.getAll());
+        var acc = getAccidentService();
+        model.addAttribute("accidents", accidentService.getAll());
         return "index";
     }
 }
