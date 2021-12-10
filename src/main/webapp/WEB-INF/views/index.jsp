@@ -27,6 +27,9 @@
 <body>
 <%
 %>
+<a href="<c:url value='/create'/>">Добавить инцидент</a>
+<br>
+<br>
 <div class="container pt-3">
     <div class="row">
         <div class="card" style="width: 100%">

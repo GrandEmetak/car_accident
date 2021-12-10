@@ -6,6 +6,8 @@ import java.util.Objects;
 
 /**
  * Модель данных - правонарушения.
+ * 2. IndexControl. Таблица и вид. [#2092 #235642]
+ * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
  */
 @Component
 public class Accident {

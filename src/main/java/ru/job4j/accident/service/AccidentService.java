@@ -10,6 +10,8 @@ import java.util.Objects;
 /**
  * описывающий логику работы.
  * -@Service для классов с бизнес логикой
+ * 2. IndexControl. Таблица и вид. [#2092 #235642]
+ * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
  */
 @Service
 public class AccidentService {
@@ -20,10 +22,10 @@ public class AccidentService {
         this.accidentMem = accidentMem;
     }
 
-    public AccidentService() {
+   /* public AccidentService() {
         AccidentMem accidentMem = new AccidentMem();
         this.accidentMem = accidentMem;
-    }
+    }*/
 
     /**
      * @return возвращает коллекцию значнией

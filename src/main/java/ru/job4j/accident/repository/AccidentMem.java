@@ -32,6 +32,14 @@ public class AccidentMem {
         );
     }
 
+    public void create(Accident accident) {
+        System.out.println("Объект что пришел в хранилище : " + accident);
+        int s = accidents.size();
+        System.out.println("Size Map accident : " + accidents.size());
+        accident.setId(s + 1);
+        this.accidents.put(accident.getId(), accident);
+    }
+
     public void put(Integer value, Accident accident) {
         accidents.put(value, accident);
     }
