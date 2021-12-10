@@ -11,6 +11,8 @@ import java.util.Map;
  * Хранилище инцидентов
  * 2. IndexControl. Таблица и вид. [#2092]
  * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
+ * 3.1. @RequestParam. Форма редактирования [#308708]01
+ * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
  */
 @Repository
 public class AccidentMem {
@@ -36,8 +38,12 @@ public class AccidentMem {
         System.out.println("Объект что пришел в хранилище : " + accident);
         int s = accidents.size();
         System.out.println("Size Map accident : " + accidents.size());
-        accident.setId(s + 1);
-        this.accidents.put(accident.getId(), accident);
+        if (accident.getId() == 0) {
+            accident.setId(s + 1);
+            this.accidents.put(accident.getId(), accident);
+        } else {
+            this.accidents.put(accident.getId(), accident);
+        }
     }
 
     public void put(Integer value, Accident accident) {
@@ -49,5 +55,12 @@ public class AccidentMem {
      */
     public Collection<Accident> getAll() {
         return accidents.values();
+    }
+
+    /**
+     * поиск Accident по id, id in this case is key
+     */
+    public Accident findById(int id) {
+        return accidents.get(id);
     }
 }

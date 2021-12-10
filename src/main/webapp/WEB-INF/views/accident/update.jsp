@@ -1,8 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
+<HEAD>Update Accident</HEAD>
 <body>
-<form  action="<c:url value='/save'/>" method='POST'> <%-- @PostMapping("/save")--%>
+<form action="<c:url value='/save?id=${accident.id}'/>" method='POST'>
     <table>
         <tr>
             <td>Название: </td>
