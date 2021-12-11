@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
+import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.repository.AccidentMem;
 import ru.job4j.accident.service.AccidentService;
 
 import javax.persistence.ManyToMany;
-import java.util.ArrayList;
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 3. @ModelAttribute. Создание инцидента. [#261013]
@@ -21,6 +23,8 @@ import java.util.List;
  * 3.1. @RequestParam. Форма редактирования [#308708]
  * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
  * 4. Form с композиционным объектом [#305522]
+ * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
+ * 5. Form с аргегационными объектами [#305523]
  * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
  */
 @Controller
@@ -39,6 +43,11 @@ public class AccidentControl {
         types.add(AccidentType.of(2, "Машина и человек"));
         types.add(AccidentType.of(3, "Машина и велосипед"));
         model.addAttribute("types", types);
+        List<Rule> rules = new ArrayList<>();
+        rules.add(Rule.of(1, "Статья. 1"));
+        rules.add(Rule.of(2, "Статья. 2"));
+        rules.add(Rule.of(3, "Статья. 3"));
+        model.addAttribute("rules", rules);
         return "accident/create";
     }
 
@@ -49,13 +58,27 @@ public class AccidentControl {
     }
 
     /**
+     * 5. Form с аргегационными объектами [#305523]
+     * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
      * На стороне сервера инцидент обрабатывается через метод create().
+     * Important! - Данные на контроллере мы получаем напрямую из запроса HttpRequestServlet.
+     * String[] ids = request.getParameterValues("rIds");
+     * create.jsp
+     * <tr>
+     * <td>Статьи:</td>
+     * <td>
+     * <select name="rIds" multiple>
+     * <c:forEach var="rule" items="${rules}">
+     * <option value="${rule.id}">${rule.name}</option>
+     * </c:forEach>
+     * </select>
+     * </tr>
      *
      * @param accident
      * @return
      */
     @PostMapping("/save")
-    public String save(@ModelAttribute Accident accident) {
+    public String save(@ModelAttribute Accident accident, HttpServletRequest request) {
         String n = accident.getName();
         String f = accident.getText();
         String g = accident.getAddress();
@@ -63,6 +86,10 @@ public class AccidentControl {
         var frd = accident.getType();
         System.out.println("Имя что пришло : "
                 + n + " _ " + f + " _ " + g + " - type - " + frd + " id " + id);
+        String[] ids = request.getParameterValues("rIds");
+        Arrays.stream(ids).forEach(System.out::println);
+        var c = accidentService.findRuleArr(ids);
+        accident.setRules(c);
         accidentService.create(accident);
         return "redirect:/";
     }

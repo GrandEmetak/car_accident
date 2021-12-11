@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * Модель данных - правонарушения.
@@ -17,6 +18,8 @@ public class Accident {
     private String address;
 
     private AccidentType type;
+
+    private Set<Rule> rules;
 
     public static Accident of(int id, String name, String text, String address) {
         Accident accident = new Accident();
@@ -67,6 +70,14 @@ public class Accident {
         this.type = type;
     }
 
+    public Set<Rule> getRules() {
+        return rules;
+    }
+
+    public void setRules(Set<Rule> rules) {
+        this.rules = rules;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -86,7 +97,7 @@ public class Accident {
 
     @Override
     public String toString() {
-        return String.format("Accident: id=%s, name=%s, text=%s, address=%s, AccidentType=%s",
-                id, name, text, address, type);
+        return String.format("Accident: id=%s, name=%s, text=%s, address=%s, AccidentType=%s, rules=%s",
+                id, name, text, address, type, rules);
     }
 }

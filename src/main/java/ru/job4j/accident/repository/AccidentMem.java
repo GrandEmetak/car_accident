@@ -3,6 +3,7 @@ package ru.job4j.accident.repository;
 import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
+import ru.job4j.accident.model.Rule;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -81,5 +82,13 @@ public class AccidentMem {
      */
     public Accident get(int id) {
         return accidents.get(id);
+    }
+
+    public Rule findByIdRule(int id) {
+        List<Rule> rules = new ArrayList<>();
+        rules.add(Rule.of(1, "Статья. 1"));
+        rules.add(Rule.of(2, "Статья. 2"));
+        rules.add(Rule.of(3, "Статья. 3"));
+        return rules.get(id - 1);
     }
 }
