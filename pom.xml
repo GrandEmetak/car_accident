@@ -169,7 +169,7 @@
   </dependencies>
 
   <build>
-    <finalName>job4j_cars</finalName>
+    <finalName>job4j_car_accident</finalName>
     <plugins>
       <plugin>
         <groupId>org.jacoco</groupId>
@@ -191,27 +191,27 @@
         </executions>
       </plugin>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>3.0.0</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-            <configuration>
-              <finalName>csvReader</finalName>
-              <transformers>
-                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>ru.job4j.io.CSVReader </mainClass>
-                </transformer>
-              </transformers>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-shade-plugin</artifactId>-->
+<!--        <version>3.0.0</version>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <phase>package</phase>-->
+<!--            <goals>-->
+<!--              <goal>shade</goal>-->
+<!--            </goals>-->
+<!--            <configuration>-->
+<!--              <finalName>job4j_car_accident</finalName>-->
+<!--              <transformers>-->
+<!--                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
+<!--                  <mainClass>ru.job4j.accident.WebInit </mainClass>-->
+<!--                </transformer>-->
+<!--              </transformers>-->
+<!--            </configuration>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -266,8 +266,12 @@
         </configuration>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.2.2</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-install-plugin</artifactId>
