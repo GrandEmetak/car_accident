@@ -97,6 +97,14 @@ public class AccidentMem {
         return accidents.values();
     }
 
+    public Collection<AccidentType> getAllAccidentType() {
+        return types.values();
+    }
+
+    public Collection<Rule> getAllRules() {
+        return rules.values();
+    }
+
     /**
      * поиск Accident по id, id in this case is key
      */

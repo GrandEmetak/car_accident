@@ -2,6 +2,7 @@ package ru.job4j.accident.service;
 
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.repository.AccidentMem;
 
@@ -46,6 +47,22 @@ public class AccidentService implements AccidentServiceInterface {
     @Override
     public Collection<Accident> getAll() {
         return accidentMem.getAll();
+    }
+
+    /**
+     *
+     * @return Collection<AccidentType>
+     */
+    public Collection<AccidentType> getAllAccidentType() {
+        return accidentMem.getAllAccidentType();
+    }
+
+    /**
+     *
+     * @return Collection<Rule>
+     */
+    public Collection<Rule> getAllRules() {
+        return accidentMem.getAllRules();
     }
 
     /**
