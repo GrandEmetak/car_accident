@@ -22,6 +22,10 @@ public class AccidentMem {
 
     private AtomicInteger count = new AtomicInteger(0);
 
+    private Map<Integer, AccidentType> types = new HashMap<>();
+
+    private Map<Integer, Rule> rules = new HashMap<>();
+
     private Map<Integer, Accident> accidents = new HashMap<>();
 
     public AccidentMem() {
@@ -37,11 +41,19 @@ public class AccidentMem {
                 "Превышение скорость на  35 км/ч ",
                 "ул. Обводной Вал 17")
         );
+        initRule();
+        initTypes();
     }
 
+    /**
+     * Провоит сохранение в Бд Object Accident
+     *
+     * @param accident Object new or update
+     * @return saved Accident Object
+     */
     public Accident create(Accident accident) {
         System.out.println("Объект что пришел в хранилище : " + accident);
-        int id  = accident.getType().getId();
+        int id = accident.getType().getId();
         accident.getType().setName(whatType(id));
         if (accident.getId() == 0) {
             System.out.println("ТО что в поле Атомик : " + count);
@@ -56,15 +68,22 @@ public class AccidentMem {
 
     /**
      * получение типа по выбранному id select
+     *
      * @param id
      * @return
      */
     private String whatType(int id) {
-        List<AccidentType> types = new ArrayList<>();
-        types.add(AccidentType.of(1, "Две машины"));
-        types.add(AccidentType.of(2, "Машина и человек"));
-        types.add(AccidentType.of(3, "Машина и велосипед"));
-        return types.get(id - 1).getName();
+        return types.get(1).getName();
+    }
+
+    /**
+     * инициализирует Map<Integer, AccidentType> types
+     * эмуляция БД все объектов AccidentType
+     */
+    private void initTypes() {
+        types.put(1, AccidentType.of(1, "Две машины"));
+        types.put(2, AccidentType.of(2, "Машина и человек"));
+        types.put(3, AccidentType.of(3, "Машина и велосипед"));
     }
 
     public void put(Integer value, Accident accident) {
@@ -86,10 +105,16 @@ public class AccidentMem {
     }
 
     public Rule findByIdRule(int id) {
-        List<Rule> rules = new ArrayList<>();
-        rules.add(Rule.of(1, "Статья. 1"));
-        rules.add(Rule.of(2, "Статья. 2"));
-        rules.add(Rule.of(3, "Статья. 3"));
-        return rules.get(id - 1);
+        return rules.get(id);
+    }
+
+    /**
+     * статьи правонарушения
+     * инициализирует Map<Integer, Rule> rules, эмуляция таблицы в БД Rule Objects
+     */
+    private void initRule() {
+        rules.put(1, Rule.of(1, "Статья. 1"));
+        rules.put(2, Rule.of(2, "Статья. 2"));
+        rules.put(3, Rule.of(3, "Статья. 3"));
     }
 }
