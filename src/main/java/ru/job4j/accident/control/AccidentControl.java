@@ -82,9 +82,9 @@ public class AccidentControl {
                 + n + " _ " + f + " _ " + g + " - type - " + frd + " id " + id);
         String[] ids = request.getParameterValues("rIds");
         Arrays.stream(ids).forEach(System.out::println);
-        var c = accidentService.findRuleArr(ids);
-        accident.setRules(c);
-        accidentService.create(accident);
+
+        var rslA = accidentService.putRuleToAccid(accident, ids);
+        accidentService.create(rslA);
         return "redirect:/";
     }
 }

@@ -23,6 +23,6 @@ public interface AccidentServiceInterface {
 
     public Rule servFindByIdRule(int id);
 
-    public Set<Rule> findRuleArr(String[] iDs);
+    public Accident putRuleToAccid(Accident accident, String[] iDs);
 
 }

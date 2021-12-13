@@ -50,7 +50,6 @@ public class AccidentService implements AccidentServiceInterface {
     }
 
     /**
-     *
      * @return Collection<AccidentType>
      */
     public Collection<AccidentType> getAllAccidentType() {
@@ -58,7 +57,6 @@ public class AccidentService implements AccidentServiceInterface {
     }
 
     /**
-     *
      * @return Collection<Rule>
      */
     public Collection<Rule> getAllRules() {
@@ -75,6 +73,7 @@ public class AccidentService implements AccidentServiceInterface {
 
     /**
      * поиск одного объекта Rule о id in Repository
+     *
      * @param id Rule Object
      * @return Rule object
      */
@@ -84,14 +83,29 @@ public class AccidentService implements AccidentServiceInterface {
 
     /**
      * find Rule objet.
+     *
      * @param iDs String [] idRule
      * @return Set<Rule>
      */
-    public Set<Rule> findRuleArr(String[] iDs) {
+    private Set<Rule> findRuleArr(String[] iDs) {
         Set<Rule> ruleSet = new HashSet<>();
         for (int i = 0; i < iDs.length; i++) {
-           ruleSet.add(accidentMem.findByIdRule(Integer.parseInt(iDs[i])));
+            ruleSet.add(accidentMem.findByIdRule(Integer.parseInt(iDs[i])));
         }
         return ruleSet;
     }
- }
+
+    /**
+     * Put Rule Object
+     * in to Accident Object HttpServletRequest request.getParameterValues("rIds");
+     * front - create.jsp
+     * @param accident Object
+     * @param iDs String []
+      * @return
+     */
+    public Accident putRuleToAccid(Accident accident, String[] iDs) {
+        var ruleSet = findRuleArr(iDs);
+        accident.setRules(ruleSet);
+        return accident;
+    }
+}
