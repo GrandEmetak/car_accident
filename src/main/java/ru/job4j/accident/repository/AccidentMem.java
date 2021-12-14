@@ -29,7 +29,7 @@ public class AccidentMem {
     private Map<Integer, Accident> accidents = new HashMap<>();
 
     public AccidentMem() {
-        this.accidents.put(1, Accident.of(count.incrementAndGet(), "Pet Arsentev",
+        this.accidents.put(1, Accident.of(count.incrementAndGet(), "Petr Arsentev",
                 "Превышение скорость на  60 км/ч ",
                 "ул. Большая Сухаревская 11")
         );
