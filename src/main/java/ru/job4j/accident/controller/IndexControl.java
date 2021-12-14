@@ -3,6 +3,7 @@ package ru.job4j.accident.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import ru.job4j.accident.repository.AccidentHibernate;
 import ru.job4j.accident.repository.AccidentJdbcTemplate;
 import ru.job4j.accident.repository.AccidentMem;
 import ru.job4j.accident.service.AccidentService;
@@ -19,12 +20,19 @@ import java.util.List;
  * переходим на работу с JDBC SPRING
  * 0. Spring DataSource [#6878]
  * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.3. Template, ORM
+ * 1. Spring ORM [#2093]
+ * Уровень : 3. Мидл Категория : 3.4. SpringТопик : 3.4.3. Template, ORM
  */
 @Controller
 public class IndexControl {
-    private final AccidentJdbcTemplate accidents;
+   /* private final AccidentJdbcTemplate accidents;
 
     public IndexControl(AccidentJdbcTemplate accidents) {
+        this.accidents = accidents;
+    }*/
+    private final AccidentHibernate accidents;
+
+    public IndexControl(AccidentHibernate accidents) {
         this.accidents = accidents;
     }
 

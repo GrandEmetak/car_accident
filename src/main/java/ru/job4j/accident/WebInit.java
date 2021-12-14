@@ -6,6 +6,7 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
+import ru.job4j.accident.config.HbmConfig;
 import ru.job4j.accident.config.JdbcConfig;
 import ru.job4j.accident.config.WebConfig;
 
@@ -25,12 +26,18 @@ import javax.servlet.ServletRegistration;
  * Уровень : 3. Мидл Категория : 3.4. SpringТопик : 3.4.3. Template, ORM
  * Подключим класс конфигурации. -JdbcConfig.class
  * ac.register(WebConfig.class, JdbcConfig.class);
+ * 1. Spring ORM [#2093]00
+ * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.3. Template, ORM
+ * Заменим JdbcConfig на HbmConfig.
+ *  ac.register(WebConfig.class, JdbcConfig.class);
+ *
+ * ac.register(WebConfig.class, HbmConfig.class);
  */
 public class WebInit implements WebApplicationInitializer {
 
     public void onStartup(ServletContext servletCxt) {
         AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
-        ac.register(WebConfig.class, JdbcConfig.class);
+        ac.register(WebConfig.class, HbmConfig.class);
         ac.refresh();
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
         filter.setEncoding("UTF-8");

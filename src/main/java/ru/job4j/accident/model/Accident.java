@@ -3,6 +3,8 @@ package ru.job4j.accident.model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -11,15 +13,25 @@ import java.util.Set;
  * 2. IndexControl. Таблица и вид. [#2092 #235642]
  * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
  */
+@Entity
+@Table(name = "accident")
 public class Accident {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
+
     private String text;
+
     private String address;
 
+    @OneToOne(cascade = CascadeType.ALL)
     private AccidentType type;
 
-    private Set<Rule> rules;
+//    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "accident", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<Rule> rules = new HashSet<>();
 
     public static Accident of(int id, String name, String text, String address) {
         Accident accident = new Accident();

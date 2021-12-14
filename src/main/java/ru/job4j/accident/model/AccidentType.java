@@ -2,17 +2,32 @@ package ru.job4j.accident.model;
 
 import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
 import java.util.Objects;
 
 /**
  * 4. Form с композиционным объектом [#305522]
  * Уровень : 3. Мидл Категория : 3.4. SpringТопик : 3.4.2. MVC
  */
+@Entity
+@Table(name = "accident_types")
 public class AccidentType {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
+    @OneToOne
+    @JoinColumn(name = "accident_id")
+    private Accident accident;
+
+    public AccidentType() {
+    }
+
+    public AccidentType(String name, Accident accident) {
+        this.name = name;
+        this.accident = accident;
+    }
 
     public static AccidentType of(int id, String name) {
         AccidentType type = new AccidentType();
