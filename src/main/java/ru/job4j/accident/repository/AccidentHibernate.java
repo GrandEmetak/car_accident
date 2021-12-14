@@ -31,10 +31,13 @@ public class AccidentHibernate {
         }
     }
 
+    /**
+     *  .createQuery("from Accident", Accident.class)
+     * @return
+     */
     public List<Accident> getAll() {
         try (Session session = sf.openSession()) {
             return session
-//                    .createQuery("from Accident", Accident.class)
                     .createQuery("select distinct st from Accident st "
                                     + "join fetch st.rules a, "
                                     + "join fetch st.accident_types b", /* ошибка */

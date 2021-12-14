@@ -29,7 +29,6 @@ public class Accident {
     @OneToOne(cascade = CascadeType.ALL)
     private AccidentType type;
 
-//    @OneToMany(cascade = CascadeType.ALL)
     @OneToMany(mappedBy = "accident", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Rule> rules = new HashSet<>();
 
