@@ -67,22 +67,20 @@ public class AccidentControl {
      * </c:forEach>
      * </select>
      * </tr>
-     *
+     *String n = accident.getName();
+     *         String f = accident.getText();
+     *         String g = accident.getAddress();
+     *         int id = accident.getType().getId();
+     *         var frd = accident.getType();
+     *         System.out.println("Имя что пришло : "
+     *                 + n + " _ " + f + " _ " + g + " - type - " + frd + " id " + id);
+     *                  Arrays.stream(ids).forEach(System.out::println);
      * @param accident
      * @return
      */
     @PostMapping("/save")
     public String save(@ModelAttribute Accident accident, HttpServletRequest request) {
-        String n = accident.getName();
-        String f = accident.getText();
-        String g = accident.getAddress();
-        int id = accident.getType().getId();
-        var frd = accident.getType();
-        System.out.println("Имя что пришло : "
-                + n + " _ " + f + " _ " + g + " - type - " + frd + " id " + id);
         String[] ids = request.getParameterValues("rIds");
-        Arrays.stream(ids).forEach(System.out::println);
-
         var rslA = accidentService.putRuleToAccid(accident, ids);
         accidentService.create(rslA);
         return "redirect:/";
