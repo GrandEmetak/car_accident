@@ -15,7 +15,7 @@ import java.util.Set;
  */
 public interface AccidentServiceInterface {
 
-    public Accident create(Accident accident);
+    public Accident save(Accident accident);
 
     public Collection<Accident> getAll();
 

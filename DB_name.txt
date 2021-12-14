@@ -1,0 +1,2 @@
+Создаем новую базу auto_crash в postgresql.
+Создадаем схему db/schema.sql

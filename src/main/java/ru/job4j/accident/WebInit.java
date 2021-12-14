@@ -6,6 +6,7 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
+import ru.job4j.accident.config.JdbcConfig;
 import ru.job4j.accident.config.WebConfig;
 
 import javax.servlet.FilterRegistration;
@@ -20,12 +21,16 @@ import javax.servlet.ServletRegistration;
  * DispatcherServlet будет обрабатывать все запросы. Он доступен по адресу, указанному в addMapping().
  * 3. -@ModelAttribute. Создание инцидента. [#261013]
  * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
+ * 0. Spring DataSource [#6878]
+ * Уровень : 3. Мидл Категория : 3.4. SpringТопик : 3.4.3. Template, ORM
+ * Подключим класс конфигурации. -JdbcConfig.class
+ * ac.register(WebConfig.class, JdbcConfig.class);
  */
 public class WebInit implements WebApplicationInitializer {
 
     public void onStartup(ServletContext servletCxt) {
         AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
-        ac.register(WebConfig.class);
+        ac.register(WebConfig.class, JdbcConfig.class);
         ac.refresh();
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
         filter.setEncoding("UTF-8");

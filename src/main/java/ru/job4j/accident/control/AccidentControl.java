@@ -7,15 +7,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.job4j.accident.model.Accident;
-import ru.job4j.accident.model.AccidentType;
-import ru.job4j.accident.model.Rule;
-import ru.job4j.accident.repository.AccidentMem;
 import ru.job4j.accident.service.AccidentService;
 
-import javax.persistence.ManyToMany;
 import javax.servlet.http.HttpServletRequest;
-import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * 3. @ModelAttribute. Создание инцидента. [#261013]
@@ -82,7 +76,7 @@ public class AccidentControl {
     public String save(@ModelAttribute Accident accident, HttpServletRequest request) {
         String[] ids = request.getParameterValues("rIds");
         var rslA = accidentService.putRuleToAccid(accident, ids);
-        accidentService.create(rslA);
+        accidentService.save(rslA);
         return "redirect:/";
     }
 }

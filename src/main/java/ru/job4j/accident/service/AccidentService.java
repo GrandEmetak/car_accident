@@ -8,7 +8,6 @@ import ru.job4j.accident.repository.AccidentMem;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -37,8 +36,8 @@ public class AccidentService implements AccidentServiceInterface {
      * @return Accident Object
      */
     @Override
-    public Accident create(Accident accident) {
-        return accidentMem.create(accident);
+    public Accident save(Accident accident) {
+        return accidentMem.save(accident);
     }
 
     /**

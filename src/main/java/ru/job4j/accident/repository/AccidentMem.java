@@ -51,7 +51,7 @@ public class AccidentMem {
      * @param accident Object new or update
      * @return saved Accident Object
      */
-    public Accident create(Accident accident) {
+    public Accident save(Accident accident) {
         System.out.println("Объект что пришел в хранилище : " + accident);
         int id = accident.getType().getId();
         accident.getType().setName(whatType(id));
