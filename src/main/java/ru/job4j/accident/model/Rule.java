@@ -9,7 +9,7 @@ import java.util.Objects;
  * -@ManyToOne(много rule может быть в одном Ассидент)
  *
  * -@JoinColumn(мы всегда прописываем столбец foreign_key)
- * - @JoinColumn(name = "accident_id") //на основе каких полей строятся эти отношения
+ * - @JoinColumn(name = "accident_id") - на основе каких полей строятся эти отношения
  *  private Accident accident;
  */
 @Entity
