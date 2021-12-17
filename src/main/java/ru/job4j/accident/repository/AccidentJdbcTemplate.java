@@ -15,8 +15,11 @@ import java.util.Set;
  * бин работает с хранилищем, класс для работы с базой.
  * 0. Spring DataSource [#6878]
  * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.3. Template, ORM
+ * -@Repository - называется стереотипной аннотацией.
+ * Это значит, что этот бин выполняет определенное назначение.
+ * В данном случае @Repository указывает, что бин работает с хранилищем.
  */
-@Repository
+//@Repository
 public class AccidentJdbcTemplate {
     private final JdbcTemplate jdbc;
 
@@ -31,7 +34,7 @@ public class AccidentJdbcTemplate {
     }
 
     public List<Accident> getAll() {
-        return jdbc.query("select id, name, text, address, accident_type_id, rule_id from accident",
+        return jdbc.query("select id, name, text, address from accident",
                 (rs, row) -> {
                     Accident accident = new Accident();
                     Set<Rule> ruleSet = new HashSet<>();
