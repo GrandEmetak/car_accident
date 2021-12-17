@@ -2,15 +2,30 @@ package ru.job4j.accident.model;
 
 import javax.persistence.*;
 import java.util.Objects;
+
+/**
+ * этим выражением мы говорим Хайбирнэту что для связи с классом Accident
+ * в талице которая связана с нашим классом Rule есть столбец - accident_id
+ * -@ManyToOne(много rule может быть в одном Ассидент)
+ *
+ * @JoinColumn(мы всегда прописываем столбец foreign_key)
+ * - @JoinColumn(name = "accident_id") //на основе каких полей строятся эти отношения
+ *  private Accident accident;
+ */
 @Entity
 @Table(name = "rules")
 public class Rule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "name")
     private String name;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST,
+            CascadeType.DETACH,
+            CascadeType.PERSIST,
+            CascadeType.MERGE})
     @JoinColumn(name = "accident_id")
     private Accident accident;
 
@@ -43,6 +58,14 @@ public class Rule {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Accident getAccident() {
+        return accident;
+    }
+
+    public void setAccident(Accident accident) {
+        this.accident = accident;
     }
 
     @Override

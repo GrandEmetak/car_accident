@@ -16,17 +16,21 @@ public class AccidentType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "name")
     private String name;
-    @OneToOne
+
+    @OneToOne(cascade = {CascadeType.PERSIST,
+            CascadeType.DETACH,
+            CascadeType.PERSIST,
+            CascadeType.MERGE})
     @JoinColumn(name = "accident_id")
     private Accident accident;
 
     public AccidentType() {
     }
 
-    public AccidentType(String name, Accident accident) {
+    public AccidentType(String name) {
         this.name = name;
-        this.accident = accident;
     }
 
     public static AccidentType of(int id, String name) {
@@ -50,6 +54,14 @@ public class AccidentType {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Accident getAccident() {
+        return accident;
+    }
+
+    public void setAccident(Accident accident) {
+        this.accident = accident;
     }
 
     @Override

@@ -12,6 +12,10 @@ import java.util.Set;
  * Модель данных - правонарушения.
  * 2. IndexControl. Таблица и вид. [#2092 #235642]
  * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
+ * -@OneToMany() - потомучто в одном Ассиденкт будет много Rule
+ *- @OneToMany(cascade = CascadeType.ALL - в случае удаления/добавления каскадом
+ * , mappedBy = "accident")
+ * - т.е эту связь ищи в поле Rule class private Accident accident -> @ManyToOne связанный с этим
  */
 @Entity
 @Table(name = "accident")
@@ -20,17 +24,36 @@ public class Accident {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "text")
     private String text;
 
+    @Column(name = "address")
     private String address;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = {CascadeType.PERSIST,
+            CascadeType.DETACH,
+            CascadeType.PERSIST,
+            CascadeType.MERGE}, mappedBy = "accident")
     private AccidentType type;
 
-    @OneToMany(mappedBy = "accident", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(cascade = {CascadeType.PERSIST,
+            CascadeType.DETACH,
+            CascadeType.PERSIST,
+            CascadeType.MERGE}, mappedBy = "accident",
+    fetch = FetchType.EAGER)
     private Set<Rule> rules = new HashSet<>();
+
+    public Accident() {
+    }
+
+    public Accident(String name, String text, String address) {
+        this.name = name;
+        this.text = text;
+        this.address = address;
+    }
 
     public static Accident of(int id, String name, String text, String address) {
         Accident accident = new Accident();
@@ -39,6 +62,10 @@ public class Accident {
         accident.text = text;
         accident.address = address;
         return accident;
+    }
+
+    public void addRuleToAccident(Rule rule) {
+        rules.add(rule);
     }
 
     public int getId() {

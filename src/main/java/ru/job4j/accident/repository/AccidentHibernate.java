@@ -13,8 +13,6 @@ import java.util.List;
  * В этот класс мы передаем объект SessionFactory.
  * Spring помог связать SessionFactory с AccidentHibernate.
  * Это все, что здесь сделал Spring.
- *
- *
  */
 @Repository
 public class AccidentHibernate {
@@ -24,25 +22,30 @@ public class AccidentHibernate {
         this.sf = sf;
     }
 
+    /**
+     * сохранение Accident object in to DB
+     * @param accident Object
+     * @return saved in to db Accident object
+     *  - session.save(accident);
+     */
     public Accident save(Accident accident) {
         try (Session session = sf.openSession()) {
-            session.save(accident);
+            session.persist(accident);
             return accident;
         }
     }
 
     /**
-     *  .createQuery("from Accident", Accident.class)
-     * @return
+     * .createQuery("from Accident", Accident.class)
+     *
+     * @return + "join fetch st.accident_types b", - ошибка
      */
     public List<Accident> getAll() {
         try (Session session = sf.openSession()) {
             return session
-                    .createQuery("select distinct st from Accident st "
-                                    + "join fetch st.rules a, "
-                                    + "join fetch st.accident_types b", /* ошибка */
+                    .createQuery("SELECT a FROM Accident a",
                             Accident.class)
-                    .list();
+                    .getResultList();
         }
     }
 }
