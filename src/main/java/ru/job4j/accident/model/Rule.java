@@ -8,7 +8,7 @@ import java.util.Objects;
  * в талице которая связана с нашим классом Rule есть столбец - accident_id
  * -@ManyToOne(много rule может быть в одном Ассидент)
  *
- * @JoinColumn(мы всегда прописываем столбец foreign_key)
+ * -@JoinColumn(мы всегда прописываем столбец foreign_key)
  * - @JoinColumn(name = "accident_id") //на основе каких полей строятся эти отношения
  *  private Accident accident;
  */
