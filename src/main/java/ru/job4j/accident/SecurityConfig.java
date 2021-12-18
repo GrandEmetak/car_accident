@@ -25,10 +25,16 @@ import javax.sql.DataSource;
  * 1. Авторизация через JDBC [#2094]
  * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.4. Security
  * Откройте класс SecurityConfig и измените настройку авторизации.
+ * 2. Регистрация пользователя [#296069]
+ * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.4. Security
+ * Добавим запросы авторизации и аутентификации.
  */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private DataSource ds;
@@ -49,17 +55,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.4. Security
      * Откройте класс SecurityConfig и измените настройку авторизации.
      * По умолчанию мы добавляем пользователя user с паролем 123456.
+     * 2. Регистрация пользователя [#296069]
+     * * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.4. Security
+     * изменен - было
+     * auth.jdbcAuthentication()
+     * .dataSource(ds)
+     * .withUser(User.withUsername("user")
+     * .password(passwordEncoder().encode("123456"))
+     * .roles("USER"));
      *
      * @param auth
      * @throws Exception
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication()
-                .dataSource(ds)
-                .withUser(User.withUsername("user")
-                        .password(passwordEncoder().encode("123456"))
-                        .roles("USER"));
+        auth.jdbcAuthentication().dataSource(ds)
+                .usersByUsernameQuery("select username, password, enabled "
+                        + "from users "
+                        + "where username = ?")
+                .authoritiesByUsernameQuery(
+                        " select u.username, a.authority "
+                                + "from authorities as a, users as u "
+                                + "where u.username = ? and u.authority_id = a.id");
     }
 
     @Bean
@@ -70,7 +87,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * Метод configure(http) содержит описание доступов и конфигурирование страницы входа в приложение.
      * - ссылки, которые доступны всем.
-     * .antMatchers("/login")
+     * .antMatchers("/login") изменено на .antMatchers("/login", "/reg")
+     * (- 2. Регистрация пользователя [#296069] 3.4.4. Security)
      * .permitAll()
      * - ссылки доступны только пользователем с ролями ADMIN, USER.
      * .antMatchers("/**")
@@ -88,7 +106,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/login")
+                .antMatchers("/login", "/reg")
                 .permitAll()
                 .antMatchers("/**")
                 .hasAnyRole("ADMIN", "USER")
