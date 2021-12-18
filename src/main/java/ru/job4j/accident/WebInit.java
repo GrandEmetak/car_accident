@@ -36,15 +36,18 @@ import javax.servlet.ServletRegistration;
  * 2. Spring Data [#296073]01
  * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.3. Template, ORM
  * И заменим настройки.
- *
- * ac.register(WebConfig.class, DataConfig.class);
- *
+ *- ac.register(WebConfig.class, DataConfig.class);
+ * 0. Spring Security [#6879]
+ * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.4. Security
+ * Создадим отдельный класс, в котором сделаем настройки для авторизации.
+ *тот класс нужно прописать в загрузку приложения WebInit.
+ * ac.register(WebConfig.class, SecurityConfig.class);
  */
 public class WebInit implements WebApplicationInitializer {
 
     public void onStartup(ServletContext servletCxt) {
         AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
-        ac.register(WebConfig.class, DataConfig.class);
+        ac.register(WebConfig.class, SecurityConfig.class);
         ac.refresh();
         CharacterEncodingFilter filter = new CharacterEncodingFilter();
         filter.setEncoding("UTF-8");
