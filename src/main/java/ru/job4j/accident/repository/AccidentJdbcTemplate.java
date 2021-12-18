@@ -19,7 +19,7 @@ import java.util.Set;
  * Это значит, что этот бин выполняет определенное назначение.
  * В данном случае @Repository указывает, что бин работает с хранилищем.
  */
-//@Repository
+/*@Repository*/
 public class AccidentJdbcTemplate {
     private final JdbcTemplate jdbc;
 
