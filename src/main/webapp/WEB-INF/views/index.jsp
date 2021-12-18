@@ -22,13 +22,16 @@
             crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Accident</title>
+    <title>Car_Accident</title>
 </head>
 <body>
 <%
 %>
 <a href="<c:url value='/create'/>">Добавить инцидент</a>
 <br>
+<div>
+    Login as : ${user.username}
+</div>
 <br>
 <div class="container pt-3">
     <div class="row">

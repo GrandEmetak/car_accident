@@ -8,8 +8,11 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import javax.sql.DataSource;
 
 /**
  * Конфигурирование Spring
@@ -18,28 +21,45 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * Этот класс нужно прописать в загрузку приложения WebInit.
  * 0. Spring Security [#6879]
  * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.4. Security
+ * <p>
+ * 1. Авторизация через JDBC [#2094]
+ * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.4. Security
+ * Откройте класс SecurityConfig и измените настройку авторизации.
  */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private DataSource ds;
 
     /**
      * Метод configure(auth) содержит описание, как искать пользователей.
      * В этом примере мы загружаем их в память.
      * У каждого пользователя есть роль. По роли мы определяем, что пользователь может делать .
+     * +  @Autowired
+     * private PasswordEncoder passwordEncoder;
+     * protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+     * auth.inMemoryAuthentication()
+     * .passwordEncoder(passwordEncoder)
+     * .withUser("user").password(passwordEncoder.encode("123456")).roles("USER")
+     * .and()
+     * .withUser("admin").password(passwordEncoder.encode("123456")).roles("USER", "ADMIN");
+     * 1. Авторизация через JDBC [#2094]
+     * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.4. Security
+     * Откройте класс SecurityConfig и измените настройку авторизации.
+     * По умолчанию мы добавляем пользователя user с паролем 123456.
      *
      * @param auth
      * @throws Exception
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .passwordEncoder(passwordEncoder)
-                .withUser("user").password(passwordEncoder.encode("123456")).roles("USER")
-                .and()
-                .withUser("admin").password(passwordEncoder.encode("123456")).roles("USER", "ADMIN");
+        auth.jdbcAuthentication()
+                .dataSource(ds)
+                .withUser(User.withUsername("user")
+                        .password(passwordEncoder().encode("123456"))
+                        .roles("USER"));
     }
 
     @Bean

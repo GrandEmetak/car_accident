@@ -1,2 +1,3 @@
-Создаем новую базу auto_crash в postgresql.
-Создадаем схему db/schema.sql
+Создаем новую базу = auto_crash в postgresql.
+Создадаем схему = db/schema.sql
+Схема таблиц для авторизации = security.schema.sql
