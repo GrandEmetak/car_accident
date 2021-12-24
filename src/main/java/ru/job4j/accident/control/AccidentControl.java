@@ -10,6 +10,7 @@ import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.service.AccidentService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Arrays;
 
 /**
  * 3. @ModelAttribute. Создание инцидента. [#261013]
@@ -61,14 +62,15 @@ public class AccidentControl {
      * </c:forEach>
      * </select>
      * </tr>
-     *String n = accident.getName();
-     *         String f = accident.getText();
-     *         String g = accident.getAddress();
-     *         int id = accident.getType().getId();
-     *         var frd = accident.getType();
-     *         System.out.println("Имя что пришло : "
-     *                 + n + " _ " + f + " _ " + g + " - type - " + frd + " id " + id);
-     *                  Arrays.stream(ids).forEach(System.out::println);
+     * String n = accident.getName();
+     * String f = accident.getText();
+     * String g = accident.getAddress();
+     * int id = accident.getType().getId();
+     * var frd = accident.getType();
+     * System.out.println("Имя что пришло : "
+     * + n + " _ " + f + " _ " + g + " - type - " + frd + " id " + id);
+     * Arrays.stream(ids).forEach(System.out::println);
+     *
      * @param accident
      * @return
      */

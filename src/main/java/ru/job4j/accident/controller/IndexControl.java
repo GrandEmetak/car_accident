@@ -8,6 +8,7 @@ import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.repository.AccidentHibernate;
 import ru.job4j.accident.repository.AccidentRepository;
 import ru.job4j.accident.service.AccidentRepositoryService;
+import ru.job4j.accident.service.AccidentService;
 
 import java.util.ArrayList;
 import java.util.List;
