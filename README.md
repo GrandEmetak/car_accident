@@ -1,5 +1,5 @@
 [![Build Status](https://app.travis-ci.com/SlartiBartFast-art/job4j_car_accident.svg?branch=main)](https://app.travis-ci.com/SlartiBartFast-art/job4j_car_accident)
-
+![GitHub top language](https://img.shields.io/github/languages/top/SlartiBartFast-art/job4j_car_accident?logo=github&logoColor=green&style=plastic)
 # job4j_car_accident
 project - Auto-Breakers
 
