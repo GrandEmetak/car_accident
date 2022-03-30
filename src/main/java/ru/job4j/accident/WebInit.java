@@ -16,8 +16,6 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
 
 /**
- * 0. Spring MVC [#6877]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
  * Когда tomcat загружает наше приложение, он ищет класс, который расширяет WebApplicationInitializer.
  * Tomcat создает контекст Spring и загружает DispatcherServlet.
  * DispatcherServlet будет обрабатывать все запросы. Он доступен по адресу, указанному в addMapping().
