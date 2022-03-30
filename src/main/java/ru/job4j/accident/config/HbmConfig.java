@@ -14,13 +14,9 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
- * подключим Hibernate
- * 1. Spring ORM [#2093 #240116]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.3. Template, ORM
+ * подключение Hibernate к проекту
  * Настройки SessionFactory
- * Создадим класс HbmConfig и добавим в него загрузку SessionFactory.
- * Заменим JdbcConfig на HbmConfig.
- * в классе WebInit
+ * Заменим JdbcConfig на HbmConfig в классе WebInit
  * ac.register(WebConfig.class, HbmConfig.class);
  */
 @Configuration

@@ -10,9 +10,7 @@ import java.util.Set;
 
 /**
  * Модель данных - правонарушения.
- * 2. IndexControl. Таблица и вид. [#2092 #235642]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
- * -@OneToMany() - потомучто в одном Ассиденкт будет много Rule
+ * -@OneToMany() - потому-что в одном Ассидент будет много Rule
  *- @OneToMany(cascade = CascadeType.ALL - в случае удаления/добавления каскадом
  * , mappedBy = "accident")
  * - т.е эту связь ищи в поле Rule class private Accident accident -> @ManyToOne связанный с этим

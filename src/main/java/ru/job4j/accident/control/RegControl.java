@@ -12,9 +12,7 @@ import ru.job4j.accident.repository.UserRepository;
 
 /**
  * Controller
- * 2. Регистрация пользователя [#296069]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.4. Security
- * Добавим модели данных и репозитории для новых моделей.
+ *  Регистрация пользователя
  * + Authority class
  * + Репозиторий interface AuthorityRepository
  * + Репозиторий interface UserRepository

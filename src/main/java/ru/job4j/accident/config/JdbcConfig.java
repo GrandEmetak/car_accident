@@ -11,13 +11,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 /**
- * подключим к проекту "Автонарушитель" базу данных.
+ * подключим к проекту "Авто нарушитель" базу данных.
  * На данном этапы мы напишем все через JDBC
- *  В данно классе - В нем нужно создать бин, который будет содержать пул соединений.
- * 0. Spring DataSource [#6878 #239808]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.3. Template, ORM
- * - @PropertySource("classpath:app.properties")  -- эта аннотация говорит Spring считать файл.
- * Далее настройки можно получить через аннотацию @Value("${jdbc.driver}") String driver,
+ * <p>
  * Метод ds загружает пул соединений.
  * Метод jdbc создает обертку для работы с базой.
  */

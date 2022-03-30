@@ -17,16 +17,10 @@ import javax.sql.DataSource;
 /**
  * Конфигурирование Spring
  * Создадим отдельный класс, в котором сделаем настройки для авторизации.
- * +
  * Этот класс нужно прописать в загрузку приложения WebInit.
- * 0. Spring Security [#6879]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.4. Security
  * <p>
- * 1. Авторизация через JDBC [#2094]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.4. Security
  * Откройте класс SecurityConfig и измените настройку авторизации.
- * 2. Регистрация пользователя [#296069]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.4. Security
+ * <p>
  * Добавим запросы авторизации и аутентификации.
  */
 @Configuration
@@ -51,12 +45,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * .withUser("user").password(passwordEncoder.encode("123456")).roles("USER")
      * .and()
      * .withUser("admin").password(passwordEncoder.encode("123456")).roles("USER", "ADMIN");
-     * 1. Авторизация через JDBC [#2094]
-     * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.4. Security
-     * Откройте класс SecurityConfig и измените настройку авторизации.
+     * <p>
      * По умолчанию мы добавляем пользователя user с паролем 123456.
-     * 2. Регистрация пользователя [#296069]
-     * * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.4. Security
+     * <p>
      * изменен - было
      * auth.jdbcAuthentication()
      * .dataSource(ds)
@@ -88,7 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * Метод configure(http) содержит описание доступов и конфигурирование страницы входа в приложение.
      * - ссылки, которые доступны всем.
      * .antMatchers("/login") изменено на .antMatchers("/login", "/reg")
-     * (- 2. Регистрация пользователя [#296069] 3.4.4. Security)
+     * <p>
      * .permitAll()
      * - ссылки доступны только пользователем с ролями ADMIN, USER.
      * .antMatchers("/**")

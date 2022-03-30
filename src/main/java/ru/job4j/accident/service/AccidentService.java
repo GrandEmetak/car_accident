@@ -11,14 +11,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * описывающий логику работы.
- * -@Service для классов с бизнес логикой
- * 2. IndexControl. Таблица и вид. [#2092 #235642]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
- * 4. Form с композиционным объектом [#305522]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
- * 5. Form с аргегационными объектами [#305523]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
+ * описывающий бизнес логику работы.
+ * работает с локальным хранилищем данных
  */
 @Service
 public class AccidentService implements AccidentServiceInterface {
@@ -30,7 +24,7 @@ public class AccidentService implements AccidentServiceInterface {
     }
 
     /**
-     * производит запись new Accident в Репозиторий или обновление существующией записи
+     * производит запись new Accident в Репозиторий или обновление существующей записи
      *
      * @param accident Object
      * @return Accident Object

@@ -8,11 +8,7 @@ import ru.job4j.accident.model.Accident;
 import java.util.List;
 
 /**
- * 1. Spring ORM [#2093]
- * Уровень : 3. Мидл Категория : 3.4. SpringТопик : 3.4.3. Template, ORM
  * В этот класс мы передаем объект SessionFactory.
- * Spring помог связать SessionFactory с AccidentHibernate.
- * Это все, что здесь сделал Spring.
  */
 @Repository
 public class AccidentHibernate {
@@ -24,9 +20,10 @@ public class AccidentHibernate {
 
     /**
      * сохранение Accident object in to DB
+     *
      * @param accident Object
      * @return saved in to db Accident object
-     *  - session.save(accident);
+     * - session.save(accident);
      */
     public Accident save(Accident accident) {
         try (Session session = sf.openSession()) {
@@ -38,7 +35,7 @@ public class AccidentHibernate {
     /**
      * .createQuery("from Accident", Accident.class)
      *
-     * @return + "join fetch st.accident_types b", - ошибка
+     * @return List<Accident>
      */
     public List<Accident> getAll() {
         try (Session session = sf.openSession()) {

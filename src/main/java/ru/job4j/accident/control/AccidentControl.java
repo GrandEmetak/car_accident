@@ -12,16 +12,6 @@ import ru.job4j.accident.service.AccidentService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
-/**
- * 3. @ModelAttribute. Создание инцидента. [#261013]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
- * 3.1. @RequestParam. Форма редактирования [#308708]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
- * 4. Form с композиционным объектом [#305522]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
- * 5. Form с аргегационными объектами [#305523]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
- */
 @Controller
 public class AccidentControl {
 

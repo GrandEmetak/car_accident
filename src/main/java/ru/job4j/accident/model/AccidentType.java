@@ -6,8 +6,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 /**
- * 4. Form с композиционным объектом [#305522]
- * Уровень : 3. Мидл Категория : 3.4. SpringТопик : 3.4.2. MVC
+ * модель данных отвечающая за тип инцидента
  */
 @Entity
 @Table(name = "accident_types")

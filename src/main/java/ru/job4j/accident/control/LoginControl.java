@@ -12,12 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-/**
- * Настроим контроллер.
- * 0. Spring Security [#6879]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.4. Security
- *
- */
 @Controller
 public class LoginControl {
     @GetMapping("/login")

@@ -10,12 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Хранилище инцидентов
- * 2. IndexControl. Таблица и вид. [#2092]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
- * 3.1. @RequestParam. Форма редактирования [#308708]01
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
- * 4. Form с композиционным объектом [#305522]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
+ * хранение происходит в памяти запущенного приложения
  */
 @Repository
 public class AccidentMem {
@@ -46,7 +41,7 @@ public class AccidentMem {
     }
 
     /**
-     * Провоит сохранение в Бд Object Accident
+     * Производит сохранение в Бд Object Accident
      *
      * @param accident Object new or update
      * @return saved Accident Object

@@ -21,27 +21,6 @@ import javax.servlet.ServletRegistration;
  * Когда tomcat загружает наше приложение, он ищет класс, который расширяет WebApplicationInitializer.
  * Tomcat создает контекст Spring и загружает DispatcherServlet.
  * DispatcherServlet будет обрабатывать все запросы. Он доступен по адресу, указанному в addMapping().
- * 3. -@ModelAttribute. Создание инцидента. [#261013]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
- * 0. Spring DataSource [#6878]
- * Уровень : 3. Мидл Категория : 3.4. SpringТопик : 3.4.3. Template, ORM
- * Подключим класс конфигурации. -JdbcConfig.class
- * ac.register(WebConfig.class, JdbcConfig.class);
- * 1. Spring ORM [#2093]00
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.3. Template, ORM
- * Заменим JdbcConfig на HbmConfig.
- *  ac.register(WebConfig.class, JdbcConfig.class);
- *
- * ac.register(WebConfig.class, HbmConfig.class);
- * 2. Spring Data [#296073]01
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.3. Template, ORM
- * И заменим настройки.
- *- ac.register(WebConfig.class, DataConfig.class);
- * 0. Spring Security [#6879]
- * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.4. Security
- * Создадим отдельный класс, в котором сделаем настройки для авторизации.
- *тот класс нужно прописать в загрузку приложения WebInit.
- * ac.register(WebConfig.class, SecurityConfig.class);
  */
 public class WebInit implements WebApplicationInitializer {
 
