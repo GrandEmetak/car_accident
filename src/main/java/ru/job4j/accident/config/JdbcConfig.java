@@ -10,13 +10,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
-/**
- * подключим к проекту "Авто нарушитель" базу данных.
- * На данном этапы мы напишем все через JDBC
- * <p>
- * Метод ds загружает пул соединений.
- * Метод jdbc создает обертку для работы с базой.
- */
 @Configuration
 @PropertySource("classpath:app.properties")
 @EnableTransactionManagement

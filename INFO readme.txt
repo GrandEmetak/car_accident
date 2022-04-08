@@ -361,6 +361,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          protected void configure(HttpSecurity http) throws Exception {}
  */
 
+public class HbmConfig {
+/**
+ * подключение Hibernate к проекту
+ * Настройки SessionFactory
+ * Заменим JdbcConfig на HbmConfig в классе WebInit
+ * ac.register(WebConfig.class, HbmConfig.class);
+ */
+@Configuration
+@PropertySource("classpath:app.properties")
+@EnableTransactionManagement
 
 
 

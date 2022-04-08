@@ -13,12 +13,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-/**
- * подключение Hibernate к проекту
- * Настройки SessionFactory
- * Заменим JdbcConfig на HbmConfig в классе WebInit
- * ac.register(WebConfig.class, HbmConfig.class);
- */
 @Configuration
 @PropertySource("classpath:app.properties")
 @EnableTransactionManagement
