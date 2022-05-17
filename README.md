@@ -2,7 +2,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/SlartiBartFast-art/job4j_car_accident?logo=java&logoColor=red)
 ![GitHub last commit](https://img.shields.io/github/last-commit/SlartiBartFast-art/job4j_car_accident?logo=github)
 
-# job4j_car_accident
+# car_accident
 project - Auto-Breakers
 
 - В системе существуют две роли:
@@ -19,19 +19,17 @@ Java (Back-end)
 
 HTML + (Jstl) (Front-end)
 
-Libraries (java):
-
-Hibernate HQL/ JPA (data-base)
+Spring (MVC, Data JPA, Security)
 
 PostgreSQL PSQL (data-base)
 
-Spring
+Hibertate SQL-HQL(DB)
 
 JSP
 
 Jackson (parse JSON)
 
-Maven
+Maven - Build Too
 
 При входе Вас встречает логин
 
