@@ -1,8 +1,9 @@
-[![Build Status](https://app.travis-ci.com/SlartiBartFast-art/job4j_car_accident.svg?branch=main)](https://app.travis-ci.com/SlartiBartFast-art/job4j_car_accident)
-![GitHub top language](https://img.shields.io/github/languages/top/SlartiBartFast-art/job4j_car_accident?logo=java&logoColor=red)
-![GitHub last commit](https://img.shields.io/github/last-commit/SlartiBartFast-art/job4j_car_accident?logo=github)
+[![Build Status](https://app.travis-ci.com/GrandEmetak/car_accident.svg?branch=main)](https://app.travis-ci.com/GrandEmetak/car_accident)
+![GitHub top language](https://img.shields.io/github/languages/top/GrandEmetak/car_accident?logo=java&logoColor=red)
+![GitHub last commit](https://img.shields.io/github/last-commit/GrandEmetak/car_accident?logo=github)
 
 # car_accident
+
 project - Auto-Breakers
 
 - В системе существуют две роли:
@@ -33,28 +34,30 @@ Maven - Build Too
 
 При входе Вас встречает логин
 
-![Image of Arch](https://github.com/SlartiBartFast-art/job4j_car_accident/blob/main/image/Screenshot_15.jpg)
-![Image of Arch](https://github.com/SlartiBartFast-art/job4j_car_accident/blob/main/image/Screenshot_17.jpg)
+![Image of Arch](https://github.com/GrandEmetak/car_accident/blob/main/image/Screenshot_15.jpg)
+
+![Image of Arch](https://github.com/GrandEmetak/car_accident/blob/main/image/Screenshot_17.jpg)
 
 регистрация
 
-![Image of Arch](https://github.com/SlartiBartFast-art/job4j_car_accident/blob/main/image/Screenshot_16.jpg)
+![Image of Arch](https://github.com/GrandEmetak/car_accident/blob/main/image/Screenshot_16.jpg)
 
 Общий вид после входа авторизованного пользователя
 
-![Image of Arch](https://github.com/SlartiBartFast-art/job4j_car_accident/blob/main/image/Screenshot_18.jpg)
+![Image of Arch](https://github.com/GrandEmetak/car_accident/blob/main/image/Screenshot_18.jpg)
 
 Авторизованный пользователь может:
+
 - обновить данные у Accident
   
-  ![Image of Arch](https://github.com/SlartiBartFast-art/job4j_car_accident/blob/main/image/Screenshot_19.jpg)
+  ![Image of Arch](https://github.com/GrandEmetak/car_accident/blob/main/image/Screenshot_19.jpg)
 - создать новый Accident
   
-  ![Image of Arch](https://github.com/SlartiBartFast-art/job4j_car_accident/blob/main/image/Screenshot_20.jpg)
+  ![Image of Arch](https://github.com/GrandEmetak/car_accident/blob/main/image/Screenshot_20.jpg)
     
-После чего произойдет добавление ного Accident в БД
+После чего, произойдет добавление нового Accident в Базу Данных
 
-   ![Image of Arch](https://github.com/SlartiBartFast-art/job4j_car_accident/blob/main/image/Screenshot_21.jpg)
+   ![Image of Arch](https://github.com/GrandEmetak/car_accident/blob/main/image/Screenshot_21.jpg)
 
 
 
