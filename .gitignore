@@ -30,4 +30,5 @@ out
 '.idea' 
 .idea 
 *.iml 
-'*.iml' 
+'*.iml'
+INFO readme.txt
