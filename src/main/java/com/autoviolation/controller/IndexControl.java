@@ -1,17 +1,10 @@
-package ru.job4j.accident.controller;
+package com.autoviolation.controller;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.job4j.accident.model.Accident;
-import ru.job4j.accident.repository.AccidentHibernate;
-import ru.job4j.accident.repository.AccidentRepository;
-import ru.job4j.accident.service.AccidentRepositoryService;
-import ru.job4j.accident.service.AccidentService;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.autoviolation.repository.AccidentHibernate;
 
 /**
  * контроллер для главной страницы

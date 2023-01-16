@@ -1,7 +1,7 @@
-package ru.job4j.accident.repository;
+package com.autoviolation.repository;
 
+import com.autoviolation.model.User;
 import org.springframework.data.repository.CrudRepository;
-import ru.job4j.accident.model.User;
 
 /**
  * Repository для User class

@@ -1,7 +1,7 @@
-package ru.job4j.accident.repository;
+package com.autoviolation.repository;
 
+import com.autoviolation.model.Authority;
 import org.springframework.data.repository.CrudRepository;
-import ru.job4j.accident.model.Authority;
 
 /**
  * Репозиторий.

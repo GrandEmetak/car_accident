@@ -1,4 +1,4 @@
-package ru.job4j.accident;
+package com.autoviolation;
 
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.beans.factory.annotation.Autowired;

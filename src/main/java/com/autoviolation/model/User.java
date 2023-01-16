@@ -1,4 +1,4 @@
-package ru.job4j.accident.model;
+package com.autoviolation.model;
 
 import javax.persistence.*;
 import java.util.Objects;

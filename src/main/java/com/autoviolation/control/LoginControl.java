@@ -1,4 +1,4 @@
-package ru.job4j.accident.control;
+package com.autoviolation.control;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

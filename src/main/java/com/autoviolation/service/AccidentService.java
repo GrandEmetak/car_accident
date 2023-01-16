@@ -1,10 +1,10 @@
-package ru.job4j.accident.service;
+package com.autoviolation.service;
 
+import com.autoviolation.model.Accident;
+import com.autoviolation.model.AccidentType;
+import com.autoviolation.model.Rule;
+import com.autoviolation.repository.AccidentMem;
 import org.springframework.stereotype.Service;
-import ru.job4j.accident.model.Accident;
-import ru.job4j.accident.model.AccidentType;
-import ru.job4j.accident.model.Rule;
-import ru.job4j.accident.repository.AccidentMem;
 
 import java.util.Collection;
 import java.util.HashSet;

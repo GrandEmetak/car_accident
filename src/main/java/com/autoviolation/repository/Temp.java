@@ -1,16 +1,13 @@
-package ru.job4j.accident.repository;
+package com.autoviolation.repository;
 
+import com.autoviolation.model.Accident;
+import com.autoviolation.model.AccidentType;
+import com.autoviolation.model.Rule;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import ru.job4j.accident.model.Accident;
-import ru.job4j.accident.model.AccidentType;
-import ru.job4j.accident.model.Rule;
-
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * данный класс использован для наглядности работы, методов

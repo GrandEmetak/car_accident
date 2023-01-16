@@ -1,7 +1,7 @@
-package ru.job4j.accident.service;
+package com.autoviolation.service;
 
 import org.springframework.stereotype.Service;
-import ru.job4j.accident.repository.AccidentRepository;
+import com.autoviolation.repository.AccidentRepository;
 
 @Service
 public class AccidentRepositoryService {

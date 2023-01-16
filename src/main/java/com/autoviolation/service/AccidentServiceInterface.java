@@ -1,10 +1,9 @@
-package ru.job4j.accident.service;
+package com.autoviolation.service;
 
-import ru.job4j.accident.model.Accident;
-import ru.job4j.accident.model.Rule;
+import com.autoviolation.model.Accident;
+import com.autoviolation.model.Rule;
 
 import java.util.Collection;
-import java.util.Set;
 
 /**
  * Интерфейс описывающий логику работыт с СервисОбъектом

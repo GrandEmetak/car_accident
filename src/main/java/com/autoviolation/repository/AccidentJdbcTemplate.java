@@ -1,12 +1,10 @@
-package ru.job4j.accident.repository;
+package com.autoviolation.repository;
 
+import com.autoviolation.model.Accident;
+import com.autoviolation.model.AccidentType;
+import com.autoviolation.model.Rule;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
-import ru.job4j.accident.model.Accident;
-import ru.job4j.accident.model.AccidentType;
-import ru.job4j.accident.model.Rule;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

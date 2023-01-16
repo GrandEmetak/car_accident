@@ -1,6 +1,4 @@
-package ru.job4j.accident.model;
-
-import org.springframework.stereotype.Component;
+package com.autoviolation.model;
 
 import javax.persistence.*;
 import java.util.Objects;

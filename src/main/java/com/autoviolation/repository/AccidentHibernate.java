@@ -1,9 +1,9 @@
-package ru.job4j.accident.repository;
+package com.autoviolation.repository;
 
+import com.autoviolation.model.Accident;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
-import ru.job4j.accident.model.Accident;
 
 import java.util.List;
 
