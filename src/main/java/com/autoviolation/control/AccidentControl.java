@@ -35,35 +35,7 @@ public class AccidentControl {
         return "accident/update";
     }
 
-    /**
-     * 5. Form с аргегационными объектами [#305523]
-     * Уровень : 3. МидлКатегория : 3.4. SpringТопик : 3.4.2. MVC
-     * На стороне сервера инцидент обрабатывается через метод create().
-     * Important! - Данные на контроллере мы получаем напрямую из запроса HttpRequestServlet.
-     * String[] ids = request.getParameterValues("rIds");
-     * create.jsp
-     * <tr>
-     * <td>Статьи:</td>
-     * <td>
-     * <select name="rIds" multiple>
-     * <c:forEach var="rule" items="${rules}">
-     * <option value="${rule.id}">${rule.name}</option>
-     * </c:forEach>
-     * </select>
-     * </tr>
-     * String n = accident.getName();
-     * String f = accident.getText();
-     * String g = accident.getAddress();
-     * int id = accident.getType().getId();
-     * var frd = accident.getType();
-     * System.out.println("Имя что пришло : "
-     * + n + " _ " + f + " _ " + g + " - type - " + frd + " id " + id);
-     * Arrays.stream(ids).forEach(System.out::println);
-     *
-     * @param accident
-     * @return
-     */
-    @PostMapping("/save")
+      @PostMapping("/save")
     public String save(@ModelAttribute Accident accident, HttpServletRequest request) {
         String[] ids = request.getParameterValues("rIds");
         var rslA = accidentService.putRuleToAccid(accident, ids);
