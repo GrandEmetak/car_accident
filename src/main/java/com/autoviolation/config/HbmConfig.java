@@ -1,4 +1,4 @@
-package ru.job4j.accident.config;
+package com.autoviolation.config;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,7 +34,7 @@ public class HbmConfig {
     public LocalSessionFactoryBean sessionFactory(@Value("${hibernate.dialect}") String dialect, DataSource ds) {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(ds);
-        sessionFactory.setPackagesToScan("ru.job4j.accident.model");
+        sessionFactory.setPackagesToScan("com.autoviolation.model");
         Properties cfg = new Properties();
         cfg.setProperty("hibernate.dialect", dialect);
         sessionFactory.setHibernateProperties(cfg);

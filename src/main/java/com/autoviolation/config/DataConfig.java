@@ -1,4 +1,4 @@
-package ru.job4j.accident.config;
+package com.autoviolation.config;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,9 +17,10 @@ import javax.sql.DataSource;
 
 @Configuration
 @PropertySource("classpath:app.properties")
-@EnableJpaRepositories("ru.job4j.accident.repository")
+@EnableJpaRepositories("com.autoviolation.repository")
 @EnableTransactionManagement
 public class DataConfig {
+
     @Bean
     public DataSource ds(@Value("${jdbc.driver}") String driver,
                          @Value("${jdbc.url}") String url,
@@ -39,7 +40,7 @@ public class DataConfig {
         vendorAdapter.setGenerateDdl(true);
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("ru.job4j.accident");
+        factory.setPackagesToScan("com.autoviolation");
         factory.setDataSource(ds);
         return factory;
     }

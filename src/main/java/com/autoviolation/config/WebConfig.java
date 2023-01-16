@@ -1,4 +1,4 @@
-package ru.job4j.accident.config;
+package com.autoviolation.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -8,7 +8,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
-@ComponentScan("ru.job4j.accident")
+@ComponentScan("com.autoviolation")
 public class WebConfig {
     @Bean
     public ViewResolver viewResolver() {
