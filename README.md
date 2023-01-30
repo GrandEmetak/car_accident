@@ -4,35 +4,23 @@
 
 # Road traffic violation
 
-- В системе существуют две роли:
-  
+ В системе существуют две роли:  
   Обычные пользователи и автоинспекторы.
-  
+- Пользователь добавляет описание авто нарушения.  
 
-- Пользователь добавляет описание авто нарушения.
-  
-- Вид системы:
-  
+Вид системы:  
   Главная страница — это поиск с таблицей.
 
 Использованы 2 версии локальная БД и удаленная БД (Postgresql)
 
 Used stack technologies:
-
 - Java (Back-end)
-
 - HTML + (Jstl) (Front-end)
-
 - Spring (MVC, Data JPA, Security)
-
 - PostgreSQL PSQL (data-base)
-
 - Hibernate SQL-HQL(DB)
-
 - JSP
-
 - Jackson (parse JSON)
-
 - Maven - Build Too
 
 При входе Вас встречает логин
@@ -63,6 +51,7 @@ Used stack technologies:
 
    ![Image of Arch](https://github.com/Halsyon/Road-traffic-violation/blob/main/image/Screenshot_21.jpg)
 
-
+## Contact
+You can email me grandjek@tutanota.com anything you would like to say about this software.
 
 
